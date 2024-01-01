@@ -6,8 +6,9 @@ export type Handler = (
 ) => Response | Promise<Response>;
 
 export type BakuRequest = Request & {
+  result: URLPatternResult;
   params?: Record<string, string | undefined>;
-  query: string;
+  query: { [k: string]: string };
 };
 
 export type Route = {

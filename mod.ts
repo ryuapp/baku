@@ -13,8 +13,12 @@ export const Router = (): BakuType => {
       for (const route of routes) {
         const result = route.p.exec(req.url);
         if ((result && route.m === "ALL") || (result && route.m === m)) {
+          req.result = result;
           req.params = result.pathname.groups;
-          req.query = result.search.input;
+          req.query = Object.fromEntries(
+            new URLSearchParams(result.search.input),
+          );
+
           return route.h(req, info);
         }
       }

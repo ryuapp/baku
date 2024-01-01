@@ -35,8 +35,8 @@ router.get("/post/:date(\\d+)/:title([a-z]+)", (req) => {
 
 // get query parameters
 router.get("/search", (req) => {
-  const query = new URLSearchParams(req.query).get("q");
-  return new Response(`Your query is ${query}`);
+  const { q } = req.query as { q?: string };
+  return new Response(`Your query is ${q}`);
 });
 
 // handle a PURGE method and return a Redirect response
