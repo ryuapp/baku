@@ -3,8 +3,8 @@
 
 # Baku
 
-Baku - _**\[漠\] rumored to mean pico in Sinosphere**_ is a router using
-`URLPattern` for Deno.
+Baku - _**\[漠\] means pico in Sinosphere**_ is a router using `URLPattern` for
+Deno.
 
 This is created from [Pico](https://github.com/yusukebe/pico).
 
