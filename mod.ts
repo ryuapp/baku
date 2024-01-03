@@ -15,9 +15,10 @@ export const Router = (): BakuType => {
         if ((result && route.m === "ALL") || (result && route.m === m)) {
           req.result = result;
           req.params = result.pathname.groups;
-          req.query = Object.fromEntries(
-            new URLSearchParams(result.search.input),
-          );
+          Object.defineProperty(req, "query", {
+            get: () =>
+              Object.fromEntries(new URLSearchParams(result.search.input)),
+          });
 
           return route.h(req, info);
         }
