@@ -57,7 +57,7 @@ router.get("/ip", (_req, info) => {
 // return a custom 404 response
 router.all("*", () => new Response("Custom 404", { status: 404 }));
 
-Deno.serve(router.fetch);
+Deno.serve(router.handle);
 ```
 
 ## Related

@@ -1,6 +1,6 @@
 // Copyright (c) 2022 - present Yusuke Wada. All rights reserved. MIT license.
 
-export type Handler = (
+export type ServeHandler = (
   request: BakuRequest,
   info: Deno.ServeHandlerInfo,
 ) => Response | Promise<Response>;
@@ -14,18 +14,18 @@ export type BakuRequest = Request & {
 export type Route = {
   p: URLPattern;
   m: string;
-  h: Handler;
+  h: ServeHandler;
 };
 
 export type BakuType = {
   routes: Route[];
-  fetch: Deno.ServeHandler;
-  on: (method: string, path: string, handler: Handler) => void;
+  handle: Deno.ServeHandler;
+  on: (method: string, path: string, handler: ServeHandler) => void;
 } & Methods;
 
 type MethodHandler = (
   path: string,
-  handler: Handler,
+  handler: ServeHandler,
 ) => BakuType | Response | Promise<Response>;
 
 type Methods = {

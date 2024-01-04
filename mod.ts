@@ -1,14 +1,14 @@
 // Copyright (c) 2022 - present Yusuke Wada. All rights reserved. MIT license.
 
-import type { BakuType, Handler, Route } from "./types.ts";
+import type { BakuType, Route, ServeHandler } from "./types.ts";
 
 export const Router = (): BakuType => {
   const routes: Route[] = [];
   const f: {
-    fetch: Handler;
-    on: (method: string, path: string, handler: Handler) => void;
+    handle: ServeHandler;
+    on: (method: string, path: string, handler: ServeHandler) => void;
   } = {
-    fetch: (req, info) => {
+    handle: (req, info) => {
       const m = req.method;
       for (const route of routes) {
         const result = route.p.exec(req.url);
@@ -37,7 +37,7 @@ export const Router = (): BakuType => {
   };
   const p = new Proxy({} as BakuType, {
     get: (_, prop: string, receiver) => (...args: unknown[]) => {
-      if (prop === "fetch" || prop === "on") {
+      if (prop === "handle" || prop === "on") {
         // deno-lint-ignore ban-ts-comment
         // @ts-ignore
         return f[prop](...args);
