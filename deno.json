@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "docs": "cd docs && deno run --allow-read --allow-write minifier.ts && deno run --allow-net --allow-read --unstable-hmr=pages server.ts"
+  }
+}
