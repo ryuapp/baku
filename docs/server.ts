@@ -5,8 +5,8 @@ import { Router } from "../mod.ts";
 const title = "Baku - A router for Deno";
 const description = "Baku is a router for Deno";
 
-const css = await Deno.readTextFile("styles/markdown.min.css");
-const markdown = await Deno.readTextFile("pages/index.md");
+const css = await Deno.readTextFile("docs/styles/markdown.min.css");
+const markdown = await Deno.readTextFile("docs/pages/index.md");
 const body = render(markdown);
 
 const html = `
