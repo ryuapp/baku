@@ -1,19 +1,19 @@
 :root {
   --color-canvas-default-transparent: rgba(255, 255, 255, 0);
-  --color-prettylights-syntax-comment: #6e7781;
-  --color-prettylights-syntax-constant: #0550ae;
-  --color-prettylights-syntax-entity: #8250df;
-  --color-prettylights-syntax-storage-modifier-import: #24292f;
-  --color-prettylights-syntax-entity-tag: #116329;
-  --color-prettylights-syntax-keyword: #cf222e;
-  --color-prettylights-syntax-string: #0a3069;
-  --color-prettylights-syntax-variable: #953800;
-  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-comment: #8b949e;
+  --color-prettylights-syntax-constant: #79c0ff;
+  --color-prettylights-syntax-entity: #d2a8ff;
+  --color-prettylights-syntax-storage-modifier-import: #c9d1d9;
+  --color-prettylights-syntax-entity-tag: #7ee787;
+  --color-prettylights-syntax-keyword: #ff7b72;
+  --color-prettylights-syntax-string: #a5d6ff;
+  --color-prettylights-syntax-variable: #ffa657;
+  --color-prettylights-syntax-string-regexp: #7ee787;
   --color-prettylights-syntax-markup-deleted-text: #82071e;
   --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
   --color-prettylights-syntax-markup-inserted-text: #116329;
   --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
-  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+  --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
   --color-fg-default: #24292f;
   --color-fg-muted: #57606a;
   --color-canvas-default: #fff;
@@ -793,8 +793,8 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  color: #1f2328;
-  background-color: #f6f8fa;
+  color: #f6f8fa;
+  background-color: #1f2328;
   border-radius: 6px;
 }
 
