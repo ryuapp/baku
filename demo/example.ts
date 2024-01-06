@@ -1,4 +1,4 @@
-import { Router } from "../mod.ts";
+import { Router } from "../src/mod.ts";
 
 // create a router object, `new` is not needed
 const router = Router();
