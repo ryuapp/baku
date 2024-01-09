@@ -20,9 +20,12 @@ const html = `
     <link href="markdown.min.css" rel="stylesheet" />
   </head>
   <body>
-    <main class="markdown-body" style="max-width: 768px;margin: 0 auto;">
+    <main class="markdown-body" style="max-width: 768px;margin: 0 auto;padding:20px auto;">
       ${body}
     </main>
+    <footer style="max-width: 768px;margin: 10px auto;font-size: 0.75rem;display: flex;">
+      <span style="margin: 0 auto;">© 2024 <a href="https://ryu.app" style="color: black;text-decoration:none;">ryu.app</a></span>
+    <footer>
   </body>
 </html>
 `;
