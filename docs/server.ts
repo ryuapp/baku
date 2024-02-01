@@ -20,7 +20,7 @@ const htmlStr = `
     <link href="markdown.min.css" rel="stylesheet" />
   </head>
   <body>
-    <main class="markdown-body" style="max-width: 768px;margin: 0 auto;padding:20px auto;">
+    <main class="markdown-body" style="max-width: 768px;margin: 0 auto;padding:20px;">
       ${body}
     </main>
     <footer style="max-width: 768px;margin: 10px auto;font-size: 0.75rem;display: flex;">
