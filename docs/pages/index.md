@@ -28,51 +28,55 @@ Baku fulfills demands like wanting to use
 ## Example
 
 ```ts
-import { Router } from "https://deno.land/x/baku/mod.ts";
+import {
+  createResponse,
+  json,
+  notFound,
+  redirect,
+  Router,
+  text,
+} from "https://deno.land/x/baku/mod.ts";
 
 // create a router object, `new` is not needed
 const router = Router();
 
 // handle a GET request and return a TEXT response
-router.get("/", () => new Response("Hello Baku!"));
+router.get("/", () => text("Hello Baku"));
 
 // capture path parameters and return a JSON response
 router.get("/user/:id", (req) => {
-  return new Response(`Your id is ${req.params?.id}`);
+  return text(`Your id is ${req.params?.id}`);
 });
 
 // return a primitive Response object
-router.get("/money", () => new Response("Payment required", { status: 402 }));
+router.get("/money", () => {
+  const res = createResponse();
+  res.status(402);
+  return res.text("Payment required");
+});
 
 // capture path parameters with RegExp
 router.get("/post/:date(\\d+)/:title([a-z]+)", (req) => {
   const { date, title } = req.params as { date: string; title: string };
-  return Response.json({ post: { date, title } });
+  return json({ post: { date, title } });
 });
 
 // get query parameters
 router.get("/search", (req) => {
   const { q } = req.query as { q?: string };
-  return new Response(`Your query is ${q}`);
+  return text(`Your query is ${q}`);
 });
 
 // handle a PURGE method and return a Redirect response
-router.on("PURGE", "/cache", () => {
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: "/",
-    },
-  });
-});
+router.on("PURGE", "/cache", () => redirect("/"));
 
 // return client public IP
 router.get("/ip", (_req, info) => {
-  return new Response(info.remoteAddr.hostname);
+  return text(info.remoteAddr.hostname);
 });
 
 // return a custom 404 response
-router.all("*", () => new Response("Custom 404", { status: 404 }));
+router.all("*", () => notFound("Custom 404"));
 
 Deno.serve(router.handle);
 ```
