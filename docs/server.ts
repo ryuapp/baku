@@ -1,6 +1,6 @@
-import { render } from "https://deno.land/x/gfm@0.5.0/mod.ts";
+import { render } from "https://deno.land/x/gfm@0.6.0/mod.ts";
 import "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check";
-import { serveDir } from "https://deno.land/std@0.211.0/http/file_server.ts";
+import { serveDir } from "https://deno.land/std@0.214.0/http/file_server.ts";
 import { html, Router } from "../src/mod.ts";
 
 const title = "Baku - A router for Deno";
