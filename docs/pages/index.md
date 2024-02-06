@@ -25,6 +25,55 @@ routing.\
 Baku fulfills demands like wanting to use
 [Deno.ServeHandlerInfo](https://deno.land/api?s=Deno.ServeHandlerInfo).
 
+## API
+
+### router.[method](path, handler)
+
+Register a handler for the given path and method.
+
+method: `get`, `post`, `put`, `delete`.
+
+```ts
+// GET /user/:id
+router.get("/user/:id", (req) => {
+  return new Response(`Your id is ${req.params?.id}`);
+});
+```
+
+### router.on(method, path, handler)
+
+Register a handler for the given path and method.
+
+```ts
+router.on("PURGE", "/cache", () => {
+  return new Response("Cache purged");
+});
+```
+
+### req.params()
+
+Get path parameters.
+
+```ts
+// GET /user/:id
+router.get("/user/:id", (req) => {
+  return new Response(`Your id is ${req.params?.id}`);
+  // => Your id is 123
+});
+```
+
+### req.query()
+
+Get query parameters.
+
+```ts
+// GET /search?q=hello
+router.get("/search", (req) => {
+  return new Response(`Your query is ${req.query?.q}`);
+  // => Your query is hello
+});
+```
+
 ## Example
 
 ```ts
