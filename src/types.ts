@@ -7,7 +7,7 @@ export type ServeHandler = (
 
 export type BakuRequest = Request & {
   result: URLPatternResult;
-  params?: Record<string, string | undefined>;
+  params: Record<string, string | undefined>;
   query: { [k: string]: string };
 };
 
@@ -26,7 +26,7 @@ export type BakuType = {
 type MethodHandler = (
   path: string,
   handler: ServeHandler,
-) => BakuType | Response | Promise<Response>;
+) => Response | Promise<Response>;
 
 type Methods = {
   all: MethodHandler;
